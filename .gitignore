@@ -87,3 +87,8 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# 数据库
+db.sqlite
+db.sqlite3
+*db.
