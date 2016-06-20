@@ -6,8 +6,10 @@ https://github.com/lnooge/Django_web
 # Field Options
 ** null 
    默认值为 Flase,设置Ture则字段可以为null
+
 ** blank 
    默认值为 Flase,设置为True则字段可以为空字符串
+
 ** choices
    枚举字段，用法：
    SHIRT_SIZES (
@@ -22,9 +24,12 @@ https://github.com/lnooge/Django_web
 
 ** default
    默认值，可以设方法
+
 ** help_text
    组件的help展示字段
+
 ** primary_key
    设为True则为主键，Django会默认生成自曾主键，一般可以不用
+
 ** unique
    设为True 则是唯一键
