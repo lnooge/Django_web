@@ -33,3 +33,29 @@ https://github.com/lnooge/Django_web
 
 ** unique
    设为True 则是唯一键
+
+** on_delete
+
+# 实体间的关系
+## 外键
+   ForeignKey()
+
+## 多对多
+   ManyToManyField()
+
+# Django之外键删除
+   Django还是采用级联的删除方式，当你删除一个外键的是侯，外键关联的实体也被删除，但在创建models的时候，外键增加了一个可选的参数on_delete
+   class Blog(models.Model):
+       user = models.ForeignKey(User,blank=True,null=True,on_delete=models.SET_NULL)
+
+   当blog对应的user删除时，blog里的user字段会设置为空值，而不是连同blog也删除掉。
+   on_delete有多少个选项呢：
+   1. CASCADE:这是默认的选项，练级删除，你无需显性指定它。
+   2. PROTECT:保护模式，如果采用该选项，删除的时候，会抛出ProtectedError错误。
+   3. SET_NULL: 置空模式，删除的时候，外键字段被置为空，前提就是blank=True,null=True,定义该字段的时候，允许为空。
+   4. SET:自定义一个值，该值当然只能是对应的实体了，看一下代码：
+   def get_sentinel_user():  
+       return User.objects.get_or_create(username='deleted')[0]  
+  
+   class MyModel(models.Model):  
+       user = models.ForeignKey(User, on_delete=models.SET(get_sentinel_user))
