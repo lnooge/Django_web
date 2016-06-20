@@ -1,10 +1,7 @@
-* Django models Field 字段
-# CharField(max_length=20) 字符型字段
-# ForeignKey(Tag, on_delete=models.CASCADE) 外键字段
-  1. on_delete 属性
-     1. 
-
-
+这是一篇介绍Django Model 的文章，再次记录以便往后查阅。
+本文不属于Django_web项目文件，只是用来平常查阅相关资料只用。
+https://github.com/lnooge/Django_web
+这是我的Django项目，新手学习中！
 
 # Field Options
 ** null 
